@@ -1,0 +1,6 @@
+---
+# handlers file for wickedchild.nginx-reverse-proxy
+- name: restart nginx
+  service:
+    name: "{{ nginx_reverse_proxy_nginx_service }}"
+    state: restarted

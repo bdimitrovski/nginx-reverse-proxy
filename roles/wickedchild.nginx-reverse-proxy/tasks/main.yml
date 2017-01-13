@@ -1,0 +1,9 @@
+---
+# tasks file for wickedchild.nginx-reverse-proxy
+- name: Ensure nginx is installed.
+  apt:
+    name: nginx
+    state: installed
+
+- include: deploy.yml 
+  tags: deploy 

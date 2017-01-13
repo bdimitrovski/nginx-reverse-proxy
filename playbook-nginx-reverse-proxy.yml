@@ -1,0 +1,18 @@
+---
+- hosts: nginx-reverse-proxy
+  remote_user: vagrant
+  become: true
+  become_user: root
+
+  roles: 
+    - role: wickedchild.nginx-reverse-proxy
+
+  vars:
+    - nginx_reverse_proxy_proxies:
+      - config_name: reverse_proxy_1
+        backend_name: www.google.com
+        backends:
+          - localhost:1880 weight=2
+          - localhost:1881
+        domains:
+          - app1.192.168.50.10.xip.io
